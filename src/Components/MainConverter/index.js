@@ -116,9 +116,10 @@ render() {
                     >轉換</Button>
                     {(this.state.player)?
                     <ReactPlayer 
-                        style={{ margin: 'auto', padding: '20px' }} 
+                        style={{ margin: 'auto', padding: '20px', maxWidth: '600px'}} 
                         url = {this.state.playerLink}
                         controls = {true}
+                        width = {'auto'}   
                     />:
                     ''} 
                     <ResultList result={this.state.result} />
