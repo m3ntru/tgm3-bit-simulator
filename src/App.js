@@ -6,10 +6,9 @@ import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import { Fab } from '@material-ui/core/';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
-
 const tgm3Theme = createMuiTheme({
   typography:  {
-    fontFamily: '"Noto Sans CJK TC"',
+    fontFamily: 'Noto Sans TC,sans-serif',
   },
 });
 

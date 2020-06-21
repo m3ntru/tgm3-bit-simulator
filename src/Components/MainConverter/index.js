@@ -4,13 +4,18 @@ import Converter from '../../model/Converter'
 import logoCgua from '../../img/tgm3Cgua.png';
 import logoOD from '../../img/tgm3OD.png';
 import logoAmon from '../../img/tgm3AMON.png';
-import { Container, Typography, Card, CardContent, Button, TextField, Paper } from '@material-ui/core/';
+import { Container, Typography, Card, CardContent, Button, TextField, Paper, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core/';
+import Example from '../../example.json'
+import ReactPlayer from 'react-player'
 
 class MainConverter extends Component {
     state = {
         text: "",
         result: [],
         logo: logoCgua,
+        example : 0,
+        player: false,
+        playerLink: ''
     }
 
     handleChange = name => event => {
@@ -19,10 +24,23 @@ class MainConverter extends Component {
         });
     };
 
+    handleLoadClick = () => {
+        var exampleText = Example.case[this.state.example].origin;
+        var result = Converter.splitTextV1(exampleText, [".", "!", "?", ":", ";", ",", " "], 90);
+        this.setState({
+            text: exampleText,
+            logo: logoCgua,
+            player: true,
+            playerLink: Example.case[this.state.example].link,
+            result
+        })
+    }
+
     handleConverterClick = () => {
         if (this.state.text !== "") {
             if (this.state.text.toLowerCase() === "od9000") {
                 this.setState({
+                    player: false,
                     logo: logoOD,
                     text: '<message deleted>',
                     result: ['O什麼O啊，上一個O的，墳頭的草已經起飛了87cm囉。(๑′ܫ`)/ http://i.imgur.com/dvPGYeA.jpg https://www.twitch.tv/tetristhegrandmaster3/v/66031829 [warning]']
@@ -31,6 +49,7 @@ class MainConverter extends Component {
             else {
                 var result = Converter.splitTextV1(this.state.text, [".", "!", "?", ":", ";", ",", " "], 90);
                 this.setState({
+                    player: false,
                     logo: logoCgua,
                     result
                 })
@@ -60,6 +79,25 @@ render() {
                             </Typography>
                         </CardContent>
                     </Card>
+                    <FormControl>
+                        <InputLabel id="demo-simple-select-label">範例</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={this.state.example}
+                            onChange={this.handleChange('example')}
+                        >                        
+                        {Example.case.map((data, index) => (
+                            <MenuItem key={data.id} value={data.id}>{data.title}</MenuItem>
+                        ))}
+                        </Select>
+                    </FormControl>
+                    <Button
+                        size="small"
+                        variant='contained'
+                        onClick={this.handleLoadClick}
+                        style={{ color: 'white', backgroundColor: '#009688', margin: '20px' }}
+                    >載入</Button>
                     <div style={{ padding: '20px' }}>
                         <TextField component={Paper}
                             multiline
@@ -76,6 +114,13 @@ render() {
                         onClick={this.handleConverterClick}
                         style={{ color: 'white', backgroundColor: '#009688', margin: '20px' }}
                     >轉換</Button>
+                    {(this.state.player)?
+                    <ReactPlayer 
+                        style={{ margin: 'auto', padding: '20px' }} 
+                        url = {this.state.playerLink}
+                        controls = {true}
+                    />:
+                    ''} 
                     <ResultList result={this.state.result} />
                 </div>
             </Container>
