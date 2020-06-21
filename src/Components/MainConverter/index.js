@@ -39,7 +39,6 @@ class MainConverter extends Component {
     }
 
 render() {
-    const { result } = this.state;
     return (
         <div style={{ margin: '20px' }}>
             <Container style={{ backgroundColor: '#e0f2f1', margin: '12px auto', padding: '0px' }} >
@@ -56,9 +55,8 @@ render() {
                                 ㄐ˙ / ㄐ˙。 / ㄙㄟ / ㄙㄟ。<br />
                                 3.中文轉注音轉換工具 <a href='https://www.chineseconverter.com/zh-tw/convert/zhuyin' target='blank'>
                                     https://www.chineseconverter.com/zh-tw/convert/zhuyin</a><br />
-                                4.有計畫新增其他功能(ex.試聽)，什麼時候上線不知道，作者下班也是會想打個電動
-                                <img src={logoAmon} alt='logo' style={{ height: '32px', width: '32px', verticalAlign: 'text-bottom'}} />
-                                。 
+                                4.有計畫新增其他功能(ex.整段試聽)，什麼時候上線不知道，作者下班也是會想打個電動
+                                <img src={logoAmon} alt='logo' style={{ height: '32px', width: '32px', verticalAlign: 'text-bottom'}} /> 
                             </Typography>
                         </CardContent>
                     </Card>
