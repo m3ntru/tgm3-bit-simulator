@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/tgm3-bit-simulator/static/css/main.2cc44724.chunk.css",
-    "main.js": "/tgm3-bit-simulator/static/js/main.61549a9f.chunk.js",
-    "main.js.map": "/tgm3-bit-simulator/static/js/main.61549a9f.chunk.js.map",
+    "main.js": "/tgm3-bit-simulator/static/js/main.26f5aa24.chunk.js",
+    "main.js.map": "/tgm3-bit-simulator/static/js/main.26f5aa24.chunk.js.map",
     "runtime-main.js": "/tgm3-bit-simulator/static/js/runtime-main.e3fa689e.js",
     "runtime-main.js.map": "/tgm3-bit-simulator/static/js/runtime-main.e3fa689e.js.map",
     "static/js/2.044b8050.chunk.js": "/tgm3-bit-simulator/static/js/2.044b8050.chunk.js",
     "static/js/2.044b8050.chunk.js.map": "/tgm3-bit-simulator/static/js/2.044b8050.chunk.js.map",
     "index.html": "/tgm3-bit-simulator/index.html",
-    "precache-manifest.8e437b346d863b8853b6eae96b860206.js": "/tgm3-bit-simulator/precache-manifest.8e437b346d863b8853b6eae96b860206.js",
+    "precache-manifest.bf80393a3ebba7ff83e72275f00ce048.js": "/tgm3-bit-simulator/precache-manifest.bf80393a3ebba7ff83e72275f00ce048.js",
     "service-worker.js": "/tgm3-bit-simulator/service-worker.js",
     "static/css/main.2cc44724.chunk.css.map": "/tgm3-bit-simulator/static/css/main.2cc44724.chunk.css.map",
     "static/js/2.044b8050.chunk.js.LICENSE.txt": "/tgm3-bit-simulator/static/js/2.044b8050.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.e3fa689e.js",
     "static/js/2.044b8050.chunk.js",
     "static/css/main.2cc44724.chunk.css",
-    "static/js/main.61549a9f.chunk.js"
+    "static/js/main.26f5aa24.chunk.js"
   ]
 }
