@@ -1,6 +1,6 @@
 {
   "name": "tgm3-bit-simulator",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": true,
   "homepage": "http://m3ntru.github.io/tgm3-bit-simulator",
   "dependencies": {
@@ -13,6 +13,7 @@
     "react": "^16.13.1",
     "react-audio-player": "^0.13.0",
     "react-dom": "^16.13.1",
+    "react-konami-code": "^2.0.0-beta.1",
     "react-player": "^2.3.1",
     "react-scripts": "3.4.1"
   },
