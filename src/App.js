@@ -19,7 +19,7 @@ function App() {
         <header className="App-header">
         </header>
         <MainConverter/>  
-        <Fab size="medium" aria-label="GitHub" href="https://github.com/m3ntru/tgm3-bit-simulator" target='blank' style={{ marginBottom : '15px' }}>
+        <Fab size="medium" aria-label="GitHub" href="https://github.com/m3ntru/tgm3-bit-simulator" target='_blank' style={{ marginBottom : '15px' }}>
           <GitHubIcon/>
         </Fab>     
       </div>

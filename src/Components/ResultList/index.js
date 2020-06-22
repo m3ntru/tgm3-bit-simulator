@@ -20,7 +20,7 @@ class ResultList extends React.Component {
                             <TableCell width="40px">{index + 1}</TableCell>
                             <TableCell>{data}</TableCell>
                             <TableCell width="50px">
-                                <Fab size="medium" aria-label="Play" href={TTS + data} target='blank'>
+                                <Fab size="medium" aria-label="Play" href={TTS + data} target='_blank'>
                                 {/* <Fab size="medium" aria-label="Play" href={TTS1.concat(90, TTS2, encodeURIComponent(data), TTS3)} target='blank'> */}
                                     <VolumeUpIcon/>
                                 </Fab> 
