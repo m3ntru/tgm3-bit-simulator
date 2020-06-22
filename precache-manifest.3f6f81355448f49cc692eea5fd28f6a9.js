@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c5f769af8aa6423ad852a409c3046986",
+    "revision": "c687f1794f99e71a504ea10e5ee7fe33",
     "url": "/tgm3-bit-simulator/index.html"
   },
   {
-    "revision": "f862f88ddc86d9cf2200",
+    "revision": "045c03f8c9fd43d8c9a4",
     "url": "/tgm3-bit-simulator/static/css/main.2cc44724.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tgm3-bit-simulator/static/js/2.044b8050.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f862f88ddc86d9cf2200",
-    "url": "/tgm3-bit-simulator/static/js/main.8f50ddfa.chunk.js"
+    "revision": "045c03f8c9fd43d8c9a4",
+    "url": "/tgm3-bit-simulator/static/js/main.e3d8e987.chunk.js"
   },
   {
     "revision": "32fbe512d8c6015e0775",
