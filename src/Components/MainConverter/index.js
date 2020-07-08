@@ -82,19 +82,16 @@ class MainConverter extends Component {
                         <Card style={{ margin: '20px' }}>
                             <CardContent>
                                 <Typography variant='subtitle2' component='p'>
-                                    小奇點注音斷句模擬器<br />
+                                小奇點注音斷句模擬器 By M3ntru(zatd39)<br />
                                 1.目前僅有純注音斷句，文字上限以及混合中文或Emoji還有待測試<br />
                                 2.中文轉注音轉換工具 <a href='https://www.chineseconverter.com/zh-tw/convert/zhuyin' target='blank'>
                                         https://www.chineseconverter.com/zh-tw/convert/zhuyin</a><br />
-                                3.試聽功能障礙排除中，目前試聽只能連結到google翻譯，請按右邊的聆聽按鈕。<br />
-                                    <Typography variant='caption' style={{ color: '#999999' }}>
-                                        (在google翻譯，要聽舊的google姐需用翻譯簡體後的結果，但右邊的翻譯結果太長時會把空格吃掉，<br />
-                                    所以遇到用空格的一聲字就會爆，這時將一聲的空格換成'-'就沒問題了)<br />
-                                    </Typography>
+                                3.試聽功能用的API架在免費空間(heroku)，有時試聽讀取緩慢為正常現象。<br />
                                 4.斷句沒有在自己想要的位置時，可使用以下注音作停頓：<br />
                                 ㄐ˙ / ㄐ˙。 / ㄙㄟ / ㄙㄟ。<br />
                                 5.有計畫新增其他功能(ex.整段試聽)，什麼時候上線不知道，作者下班也是會想打個電動
-                                <img src={logoAmon} alt='logo' style={{ height: '32px', width: '32px', verticalAlign: 'text-bottom' }} />
+                                <img src={logoAmon} alt='logo' style={{ height: '32px', width: '32px', verticalAlign: 'text-bottom' }} /><br />
+                                6.網站有任何問題，請不要找彩學，請直接聯繫作者                            
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -141,7 +138,7 @@ class MainConverter extends Component {
                                 width={'auto'}
                             /> :
                             ''}
-                        <ResultList result={this.state.result} />
+                        <ResultList text={this.state.text} result={this.state.result} />
                         {(this.state.HappyBirth) ?
                             <AudioPlayer
                                 src={HappyBirth}

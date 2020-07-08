@@ -3,13 +3,36 @@ import { Paper, Table, TableContainer, TableCell, TableRow, TableBody, Fab } fro
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 
 class ResultList extends React.Component {
-    render() {
-        const TTS = 'https://translate.google.com.tw/?hl=zh-TW&tab=wT&authuser=0#view=home&op=translate&sl=zh-CN&tl=zh-CN&text=';
-        // const TTS1 = 'http://translate.google.com/translate_tts?ie=UTF-8&textlen=';
-        // const TTS2 = '&client=tw-ob&q=';
-        // const TTS3 = '&tl=zh-CN';
 
-        const { result } = this.props
+    state = {
+        
+    }
+
+    componentDidMount() {
+        this.ttsInit()
+    }
+
+    componentDidUpdate = (prevProps, prevState) => {
+      if (this.props.result !== prevProps.result) {
+        this.ttsInit()
+      }
+    }
+    
+    ttsInit = async () => {
+        fetch('https://m3ntru-tts.herokuapp.com/', {
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded',
+                'X-Requested-With' : 'XMLHttpRequest'
+            },
+            method: 'GET',
+        }).then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+        
+    }
+
+    render() {
+        const { result, text } = this.props
         return (
             <div>
                 <TableContainer component={Paper}>
@@ -20,8 +43,7 @@ class ResultList extends React.Component {
                                     <TableCell width="40px">{index + 1}</TableCell>
                                     <TableCell>{data}</TableCell>
                                     <TableCell width="50px">
-                                        <Fab size="medium" aria-label="Play" href={TTS + data} target='_blank'>
-                                            {/* <Fab size="medium" aria-label="Play" href={TTS1.concat(90, TTS2, encodeURIComponent(data), TTS3)} target='blank'> */}
+                                        <Fab size="medium" aria-label="Play" href={'https://m3ntru-tts.herokuapp.com/api/TTS/one?text=' + data} target='_blank'>
                                             <VolumeUpIcon />
                                         </Fab>
                                     </TableCell>
