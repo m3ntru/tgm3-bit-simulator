@@ -114,6 +114,16 @@ class MainConverter extends Component {
                             onClick={this.handleLoadClick}
                             style={{ color: 'white', backgroundColor: '#009688', margin: '20px' }}
                         >載入</Button>
+                        <div>
+                            {(this.state.HappyBirth) ?
+                                <AudioPlayer
+                                    src={HappyBirth}
+                                    title={"骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯"}
+                                    autoPlay
+                                    controls
+                                /> 
+                            :''}   
+                        </div>
                         <div style={{ padding: '20px' }}>
                             <TextField component={Paper}
                                 multiline
@@ -139,12 +149,6 @@ class MainConverter extends Component {
                             /> :
                             ''}
                         <ResultList text={this.state.text} result={this.state.result} />
-                        {(this.state.HappyBirth) ?
-                            <AudioPlayer
-                                src={HappyBirth}
-                                autoPlay
-                            /> :
-                            ''}
                         <Konami action={this.easterEgg} />
                     </div>
                 </Container>

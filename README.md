@@ -8,6 +8,11 @@ https://m3ntru.github.io/tgm3-bit-simulator/
 
 ## 版本
 
+### version 0.1.8 (2020/7/9)
+- (?)更新
+- 單句試聽功能完成
+- 拿掉用不到的npm套件
+
 ### version 0.1.7 (2020/7/8)
 - 說明更新
 - TTS proxy API架設完成 試聽功能半上線

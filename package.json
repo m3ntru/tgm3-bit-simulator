@@ -1,6 +1,6 @@
 {
   "name": "tgm3-bit-simulator",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": true,
   "homepage": "http://m3ntru.github.io/tgm3-bit-simulator",
   "dependencies": {
@@ -9,7 +9,6 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "google-tts-api": "0.0.4",
     "react": "^16.13.1",
     "react-audio-player": "^0.13.0",
     "react-dom": "^16.13.1",
