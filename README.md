@@ -8,6 +8,11 @@ https://m3ntru.github.io/tgm3-bit-simulator/
 
 ## 版本
 
+### version 0.1.9 (2020/8/21)
+- 新增歐付寶試聽 ~~其實跟直接丟GOOGLE沒兩樣~~
+- 新增字數上限計算
+- 更新範例
+
 ### version 0.1.8 (2020/7/9)
 - (?)更新
 - 單句試聽功能完成

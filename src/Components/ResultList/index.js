@@ -51,7 +51,7 @@ class ResultList extends React.Component {
     }
 
     render() {
-        const { result, text } = this.props
+        const { result, text, type } = this.props
         return (
             <div>
                 <TableContainer component={Paper}>
@@ -64,7 +64,7 @@ class ResultList extends React.Component {
                                     <TableCell width="40px">
                                     {(this.state.audio[index]) ?
                                         <AudioPlayer
-                                        src={"https://m3ntru-tts.herokuapp.com/api/TTS/one?text=".concat(encodeURIComponent(data))}
+                                        src={"https://m3ntru-tts.herokuapp.com/api/TTS/one?text=".concat(encodeURIComponent(data).concat('&tl=').concat((type) ? 'tw' : 'cn'))}
                                         title={index + 1}
                                         autoPlay
                                         controls

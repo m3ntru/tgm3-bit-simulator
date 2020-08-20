@@ -6,26 +6,54 @@ import logoOD from '../../img/tgm3OD.png';
 import logoAmon from '../../img/tgm3AMON.png';
 import ONONON from '../../img/ONONON.gif';
 import HappyBirth from '../../HB.mp3';
-import { Container, Typography, Card, CardContent, Button, TextField, Paper, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core/';
+import { Container, Typography, Card, CardContent, Button, TextField, Paper, FormControl, InputLabel, Select, MenuItem, Switch} from '@material-ui/core/';
 import Example from '../../example.json'
 import ReactPlayer from 'react-player'
 import Konami from 'react-konami-code';
 import AudioPlayer from 'react-audio-player';
 
+
 class MainConverter extends Component {
     state = {
         text: "",
+        length: 0,
+        maxLength: 500,
         result: [],
         logo: logoCgua,
         example: 0,
         player: false,
         playerLink: '',
-        HappyBirth: false
+        HappyBirth: false,
+        donateType: false,
+    }
+
+    getLength = (type, msg) => {
+        var l = msg.match(/[^ -~]/g);
+        var chars = msg.length + (l ? l.length : 0);
+        return (type) ? chars : msg.length;
     }
 
     handleChange = name => event => {
         this.setState({
             [name]: event.target.value,
+        });
+    };
+
+    handleTextChange = () => event => {
+        var msg = event.target.value;
+        this.setState({
+            text: msg,
+            length: this.getLength(this.state.donateType, msg)
+        });
+    };
+
+    handleSwitchChange = () => event => {
+        this.setState({
+            donateType: event.target.checked,
+            result: [],
+            player: false,
+            length: this.getLength(event.target.checked, this.state.text),
+            maxLength: (event.target.checked)? 100 : 500
         });
     };
 
@@ -37,11 +65,15 @@ class MainConverter extends Component {
             logo: logoCgua,
             player: true,
             playerLink: Example.case[this.state.example].link,
-            result
+            result,
+            length: this.getLength(this.state.donateType, exampleText),
+            maxLength: (this.state.donateType)? 100 : 500
         })
+        
     }
 
     handleConverterClick = () => {
+        var result = [];
         if (this.state.text !== "") {
             if (this.state.text.toLowerCase() === "od9000") {
                 this.setState({
@@ -51,8 +83,16 @@ class MainConverter extends Component {
                     result: ['O什麼O啊，上一個O的，墳頭的草已經起飛了87cm囉。(๑′ܫ`)/ http://i.imgur.com/dvPGYeA.jpg https://www.twitch.tv/tetristhegrandmaster3/v/66031829 [warning]']
                 })
             }
+            else if (this.state.donateType) {
+                result = [this.state.text];
+                this.setState({
+                    player: false,
+                    logo: logoCgua,
+                    result
+                })
+            }
             else {
-                var result = Converter.splitTextV1(this.state.text, [".", "!", "?", ":", ";", ",", " "], 90);
+                result = Converter.splitTextV1(this.state.text, [".", "!", "?", ":", ";", ",", " "], 90);
                 this.setState({
                     player: false,
                     logo: logoCgua,
@@ -83,7 +123,7 @@ class MainConverter extends Component {
                             <CardContent>
                                 <Typography variant='subtitle2' component='p'>
                                 小奇點注音斷句模擬器 By M3ntru(zatd39)<br />
-                                1.目前僅有純注音斷句，文字上限以及混合中文或Emoji還有待測試<br />
+                                1.目前混合中文或Emoji 長度過長是否會消音還有待測試<br />
                                 2.中文轉注音轉換工具 <a href='https://www.chineseconverter.com/zh-tw/convert/zhuyin' target='blank'>
                                         https://www.chineseconverter.com/zh-tw/convert/zhuyin</a><br />
                                 3.試聽功能用的API架在免費空間(heroku)，有時試聽讀取緩慢為正常現象。<br />
@@ -95,26 +135,44 @@ class MainConverter extends Component {
                                 </Typography>
                             </CardContent>
                         </Card>
-                        <FormControl>
-                            <InputLabel id="demo-simple-select-label">範例</InputLabel>
-                            <Select
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
-                                value={this.state.example}
-                                onChange={this.handleChange('example')}
-                            >
-                                {Example.case.map((data, index) => (
-                                    <MenuItem key={data.id} value={data.id}>{data.title}</MenuItem>
-                                ))}
-                            </Select>
-                        </FormControl>
-                        <Button
-                            size="small"
-                            variant='contained'
-                            onClick={this.handleLoadClick}
-                            style={{ color: 'white', backgroundColor: '#009688', margin: '20px' }}
-                        >載入</Button>
                         <div>
+                        <Typography variant='caption' component='p'>
+                            小奇點
+                            <Switch
+                                color="default"
+                                onChange={this.handleSwitchChange()}
+                            />
+                            歐付寶
+                        </Typography>
+                        </div> 
+
+                        {(this.state.donateType) ?
+                            ''
+                        :
+                            <div>                               
+                                <FormControl>
+                                    <InputLabel id="demo-simple-select-label">範例</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
+                                        value={this.state.example}
+                                        onChange={this.handleChange('example')}
+                                    >
+                                        {Example.case.map((data, index) => (
+                                            <MenuItem key={data.id} value={data.id}>{data.title}</MenuItem>
+                                        ))}
+                                    </Select>
+                                </FormControl>
+                                <Button
+                                    size="small"
+                                    variant='contained'
+                                    onClick={this.handleLoadClick}
+                                    style={{ color: 'white', backgroundColor: '#009688', margin: '20px' }}
+                                >載入</Button>                               
+                            </div>
+                        }  
+                        <div>
+
                             {(this.state.HappyBirth) ?
                                 <AudioPlayer
                                     src={HappyBirth}
@@ -123,6 +181,7 @@ class MainConverter extends Component {
                                     controls
                                 /> 
                             :''}   
+
                         </div>
                         <div style={{ padding: '20px' }}>
                             <TextField component={Paper}
@@ -132,14 +191,26 @@ class MainConverter extends Component {
                                 label='Message'
                                 value={this.state.text}
                                 style={{ width: '100%' }}
-                                onChange={this.handleChange('text')}
+                                onChange={this.handleTextChange()}
                             />
                         </div>
+                        <Typography variant='caption' component='p' style={{ color: (this.state.maxLength - this.state.length < 0)?'red':'black'}}>
+                                {this.state.maxLength - this.state.length} / {this.state.maxLength}
+                        </Typography>
+
+                        {(this.state.donateType) ? '' : 
+                        <Typography variant='caption' component='p' style={{ color: (this.state.maxLength - this.state.length < 0)?'red':'black'}}>
+                            (聊天室字數上限 cheer長度也會計入 請自行預留)<br />
+                            (cheer放在訊息最前面基本上不影響 放在中間和後面可能有唸出來的情況 待測試)
+                        </Typography>
+                        }
+
                         <Button
                             variant='contained'
                             onClick={this.handleConverterClick}
                             style={{ color: 'white', backgroundColor: '#009688', margin: '20px' }}
                         >轉換</Button>
+
                         {(this.state.player) ?
                             <ReactPlayer
                                 style={{ margin: 'auto', padding: '20px', maxWidth: '600px' }}
@@ -148,7 +219,8 @@ class MainConverter extends Component {
                                 width={'auto'}
                             /> :
                             ''}
-                        <ResultList text={this.state.text} result={this.state.result} />
+
+                        <ResultList text={this.state.text} result={this.state.result} type={this.state.donateType} />
                         <Konami action={this.easterEgg} />
                     </div>
                 </Container>
