@@ -8,6 +8,11 @@ https://m3ntru.github.io/tgm3-bit-simulator/
 
 ## 版本
 
+### version 0.1.10 (2020/11/11)
+- 修改範例載入按鍵顏色降低誤觸
+- 說明修改 新增巴西包相關連結
+- (?)更新
+
 ### version 0.1.9 (2020/8/21)
 - 新增歐付寶試聽 ~~其實跟直接丟GOOGLE沒兩樣~~
 - 新增字數上限計算
@@ -47,7 +52,6 @@ https://m3ntru.github.io/tgm3-bit-simulator/
 - 注音斷句模擬器本體
 
 ## 預計加上的功能
-- 使用 Google Translate TTS 試聽結果
 - 計算使用注音，中文，Emoji以及混合使用時的文字上限
 
 ## 參考資料 & 特別感謝
