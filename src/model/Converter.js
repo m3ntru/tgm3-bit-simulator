@@ -23,6 +23,9 @@ class Converter {
                 for (var c = new RegExp(".{1,".concat(n, "}"), "g"), u = o.match(c); u.length > 0;)
                     r.push(u.shift().trim())
         };
+        var space = /\s+/g;
+        t = t.replace(space, ' ');
+        t = t.replace(",","");
         text(t, 0);
             
         var out = [];

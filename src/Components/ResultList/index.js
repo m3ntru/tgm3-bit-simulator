@@ -1,18 +1,36 @@
 import React from "react";
-import { Paper, Table, TableContainer, TableCell, TableRow, TableBody, Fab } from "@material-ui/core/";
+import logoAmon from '../../img/tgm3AMON.png';
+import logoAho from '../../img/tgm3AHO.png';
+import logoQ from '../../img/tgm3Q.png';
+import { Paper, Table, TableContainer, TableCell, TableRow, TableBody, Fab, Tooltip  } from "@material-ui/core/";
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import AudioPlayer from 'react-audio-player';
 
 class ResultList extends React.Component {
 
     state = {
-        audio: {}
+        audio: {},
+        durationCheck: {}
     }
+
+    resultFormat = {
+        description: {
+            'T' : "念得出來",
+            'F' : '太長了，念不出來',
+            'E' : '請先試聽整句後才能判斷念不念得出來'
+        },
+        emote: {
+            'T' : logoAmon,
+            'F' : logoAho,
+            'E' : logoQ
+        }
+    };
 
     componentDidMount() {
         this.ttsInit();
         this.setState({
-            audio: {} 
+            audio: {},
+            durationCheck: {}
         })
     }
 
@@ -20,7 +38,8 @@ class ResultList extends React.Component {
         if (this.props.result !== prevProps.result) {
             this.ttsInit();
             this.setState({
-                audio: {}
+                audio: {},
+                durationCheck: {}
             })
         }
     }
@@ -39,7 +58,7 @@ class ResultList extends React.Component {
     }
 
     start = (index) => {
-        if(this.state[index] == null)
+        if(this.state.audio[index] == null)
         {           
             this.setState(prevState => ({
                 audio: {               
@@ -50,8 +69,37 @@ class ResultList extends React.Component {
         }
     }
 
+    checkLength = (index) => event => {
+        const {duration} = event.target;
+        if(this.state.durationCheck[index] == null)
+        {           
+            this.setState(prevState => ({
+                durationCheck: {               
+                    ...prevState.durationCheck,   
+                    [index]: (duration < 16.5)? 'T' : 'F'
+                }
+            }))
+        }
+    }
+
+    getLengthResult = (index) => {
+        const result = (this.state.durationCheck[index]) ? this.state.durationCheck[index] : 'E';
+        const description = this.resultFormat.description[result];
+        const emote = this.resultFormat.emote[result];
+        return (
+            <Tooltip title = { 
+                <React.Fragment>
+                    {description}
+                </React.Fragment>     
+                } arrow>
+                <img src={emote} alt='logo' style={{ height: '28px', width: '28px', verticalAlign: 'text-bottom' }} />
+            </Tooltip>
+        )
+    }
+ 
+
     render() {
-        const { result, text, type } = this.props
+        const { result, text, type } = this.props; 
         return (
             <div>
                 <TableContainer component={Paper}>
@@ -66,14 +114,20 @@ class ResultList extends React.Component {
                                         <AudioPlayer
                                         src={"https://m3ntru-tts.herokuapp.com/api/TTS/one?text=".concat(encodeURIComponent(data).concat('&tl=').concat((type) ? 'tw' : 'cn'))}
                                         title={index + 1}
-                                        autoPlay
                                         controls
+                                        autoPlay
+                                        onEnded={this.checkLength(index)}
                                         />  :
-                                        <Fab size="medium" aria-label="Play" onClick={() =>this.start(index)}>
-                                            <VolumeUpIcon />
-                                        </Fab>
+                                        <Tooltip title="試聽" arrow>
+                                            <Fab size="medium" aria-label="Play" onClick={() =>this.start(index)}>
+                                                <VolumeUpIcon />
+                                            </Fab>
+                                        </Tooltip>
                                     } 
-                                    </TableCell>
+                                    </TableCell>  
+                                    <TableCell width="40px">
+                                        {this.getLengthResult(index)}
+                                    </TableCell>                                 
                                 </TableRow>
                             ))}
                         </TableBody>

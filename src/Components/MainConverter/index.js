@@ -135,16 +135,16 @@ class MainConverter extends Component {
                         <Card style={{ margin: '20px' }}>
                             <CardContent>
                                 <Typography variant='subtitle2' component='p'>
-                                小奇點注音斷句模擬器 By M3ntru(zatd39)<br />
-                                1. <a href='https://www.chineseconverter.com/zh-tw/convert/zhuyin' target='_blank'>
+                                小奇點斷句模擬器 By M3ntru(zatd39)<br />
+                                1. <a href='https://www.chineseconverter.com/zh-tw/convert/zhuyin' target='_blank' rel="noopener noreferrer">
                                 中文轉注音轉換工具</a><br />
-                                2.目前混合中文或Emoji 長度過長是否會消音還有待測試<br />
+                                2.目前消音的長度已掌握，相關細節說明再找時間補上<br />
                                 3.試聽功能用的API架在免費空間(heroku)，有時試聽讀取緩慢為正常現象。<br />
                                 4.斷句沒有在自己想要的位置時，可使用以下無聲字停頓以調整斷句位置：ㄐ˙ /ㄙㄟ /㔫<br />
                                 5.注音發音每個字會以聲調或空格做切割，<br />
                                 [ㄙㄟㄙㄟㄙㄟㄙㄟ]會無聲但只會停頓一單位長度，<br />
                                 [ㄙㄟ ㄙㄟ ㄙㄟ ㄙㄟ ]則會停頓四單位長度<s>，精通後可用於偽裝掩護</s><br />
-                                6.有計畫新增其他功能(ex.整段試聽)，什麼時候上線不知道，<s>想弄的時候會弄</s><br/>                              
+                                6.整段試聽功能經在開發中了，敬請期待！ <br />                          
                                 7.網站有任何問題，請不要找彩學，請直接聯繫
                                 <a href='https://www.plurk.com/zatd39' target='_blank' rel="noopener noreferrer">
                                 作者<img src={logoAmon} alt='logo' style={{ height: '28px', width: '28px', verticalAlign: 'text-bottom' }} /></a><br/>
@@ -154,7 +154,8 @@ class MainConverter extends Component {
                                 塞包前請詳閱公開說明[
                                 <a href='https://imgur.com/a/69PQR3q' target='_blank' rel="noopener noreferrer"><PhotoIcon style={{ fontSize: 18}} />圖片</a> 
                                 <a href='https://youtu.be/wohlMiTqamk' target='_blank' rel="noopener noreferrer"><YouTubeIcon style={{ fontSize: 18}} />影片</a>]<br/>
-                                -----------------------------------------------------------<br/>                                                              
+                                -----------------------------------------------------------<br/>         
+                                網站更新時間： 2021/01/25                                                   
                                 </Typography>
                             </CardContent>
                         </Card>
