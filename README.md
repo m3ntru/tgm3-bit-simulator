@@ -8,11 +8,17 @@ https://m3ntru.github.io/tgm3-bit-simulator/
 
 ## 版本
 
+### version 0.2.1 (2021/02/08)
+- 說明修改 新增說明文件
+- 新增Bits處理 修正斷句算法(','移除判斷拔掉)
+- 斷句音檔長度判斷 新增秒數顯示
+- 範例修正
+
 ### version 0.2.0 beta (2021/01/25)
-- 可以判斷各段會不會被消音啦 ~~我找到最後一張QR扣了~~ 
+- 可以判斷各段會不會被消音啦
 - 修正斷句算法(某次更新後 ','會被全數移除後才會進行斷句)
 - 更新範例
-- 小細節待修正 ~~我想在今天開場成功前先上一版~~
+- 小細節待修正
 
 ### version 0.1.10 (2020/11/11)
 - 修改範例載入按鍵顏色降低誤觸
@@ -62,7 +68,7 @@ https://m3ntru.github.io/tgm3-bit-simulator/
 
 ## 參考資料 & 特別感謝
 
-- 某日在聊天室出現的參考function from [ChRiS38c28](https://github.com/crs38c28) ~~塞車了是誰的錯~~  
+- 某日在聊天室出現的參考function from [ChRiS38c28](https://github.com/crs38c28) 
 https://pastebin.com/ZTM8LvFL 呼叫google translate_tts  
 https://pastebin.com/QFjdzRBi 字串分割  
 
