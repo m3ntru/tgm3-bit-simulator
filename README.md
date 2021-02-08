@@ -8,6 +8,10 @@ https://m3ntru.github.io/tgm3-bit-simulator/
 
 ## 版本
 
+### version 0.2.1 patch1 (2021/02/08)
+- 網站標題&敘述修改
+- 文件內容修正
+
 ### version 0.2.1 (2021/02/08)
 - 說明修改 新增說明文件
 - 新增Bits處理 修正斷句算法(','移除判斷拔掉)
@@ -68,10 +72,11 @@ https://m3ntru.github.io/tgm3-bit-simulator/
 
 ## 參考資料 & 特別感謝
 
+- 最大苦主 吳彩學 [TetrisTheGRANDMAster3](https://www.twitch.tv/tetristhegrandmaster3/) 
+
 - 某日在聊天室出現的參考function from [ChRiS38c28](https://github.com/crs38c28) 
 https://pastebin.com/ZTM8LvFL 呼叫google translate_tts  
 https://pastebin.com/QFjdzRBi 字串分割  
-
 
 - 最大軍火商 [鴉片](https://www.twitch.tv/append) 的多次軍火展示
 

@@ -23,10 +23,12 @@
 
 ## Alert Box運作流程
 
+<font size=5>**軍火製作說明請直接電梯向下前往斷句 & 發音說明
+配合斷句模擬器做使用效果更佳![tgm3amonBig]**</font>
+
 ``` 
 這一部分是針對Alert Box對於Bits通知程式運作的流程說明，  
-閱讀這部分可能需要一點程式概念，  
-沒興趣的話可以直接電梯向下前往斷句 & 發音說明。  
+閱讀這部分可能需要一點程式概念，有興趣再看就好。  
 ``` 
 
 先介紹我們實況中看見的通知。  
@@ -482,7 +484,7 @@ PS: 由於空格也是斷句分隔字元，
 - 我們的最大苦主 吳彩學 [TetrisTheGRANDMAster3](https://www.twitch.tv/tetristhegrandmaster3/) 
 - [ChRiS38c28](https://github.com/crs38c28) 提供本研究一切的起源 [Alert.js](https://streamlabs.com/mixed/assets/widgets/js/alertbox.js)  
 - 啟發我進行研究的最大軍火商 [Append](https://www.twitch.tv/append)  
-- 小奇點測試環境 [ICKID (´･ω･`)](https://www.twitch.tv/ickid)   
+- 小奇點測試環境提供 [ICKID (´･ω･`)](https://www.twitch.tv/ickid)   
 - 本文引用的資料原作者 [lory3324](https://www.twitch.tv/lory3324)、[ghostermoma](https://www.twitch.tv/ghostermoma)  
 - 彩學台聊天室的所有塞包眾  
 
