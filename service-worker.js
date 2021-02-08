@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/tgm3-bit-simulator/precache-manifest.4d5ac486ace0e8487e4a48438416faa7.js"
+  "/tgm3-bit-simulator/precache-manifest.b212e9b71dd31d51185119e3b59937af.js"
 );
 
 self.addEventListener('message', (event) => {
