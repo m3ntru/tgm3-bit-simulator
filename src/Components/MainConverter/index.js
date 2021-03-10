@@ -28,6 +28,7 @@ class MainConverter extends Component {
         playerLink: '',
         HappyBirth: false,
         donateType: false,
+        isAutoPlay: "",
     }
 
     getLength = (type, msg) => {
@@ -60,6 +61,12 @@ class MainConverter extends Component {
         });
     };
 
+    handlePlayerSwitchChange = () => event => {
+        this.setState({
+            isAutoPlay: event.target.checked
+        });
+    };
+
     handleLoadClick = () => {
         var exampleText = Example.case[this.state.example].origin;
         var result = Converter.formatText(exampleText, [".", "!", "?", ":", ";", ",", " "], 90);
@@ -72,7 +79,7 @@ class MainConverter extends Component {
             length: this.getLength(this.state.donateType, exampleText),
             maxLength: (this.state.donateType)? 100 : 500
         })
-        
+
     }
 
     handleConverterClick = () => {
@@ -87,7 +94,7 @@ class MainConverter extends Component {
                 })
                 console.log('%c  ', [
                     'font-size: 900px;',
-                    'background: url(http://i.imgur.com/dvPGYeA.jpg) no-repeat;'    
+                    'background: url(http://i.imgur.com/dvPGYeA.jpg) no-repeat;'
                 ].join(' '));
             }
             else if (this.state.donateType) {
@@ -117,11 +124,25 @@ class MainConverter extends Component {
             HappyBirth: true
         })
         console.log("フンフン……こっちにいい匂いが……");
-        console.log("誰で実験しよっかな～？"); 
+        console.log("誰で実験しよっかな～？");
         console.log('%c   ', [
             'font-size:400px;',
-            'background: url(https://m3ntru-tts.herokuapp.com/api/TTS/mitsuketa?day=' + today.getDay() + ') no-repeat;'    
-        ].join(' '));               
+            'background: url(https://m3ntru-tts.herokuapp.com/api/TTS/mitsuketa?day=' + today.getDay() + ') no-repeat;'
+        ].join(' '));
+    }
+
+    discord = () => {
+        this.setState({
+            player: true,
+            playerLink: "https://youtu.be/jYPIIuyPIu4",
+            logo: logoOD,
+            text: Example.predict,
+            result: ['https://tinyurl.com/umamusumePredictPro']
+        })
+        console.log('%c     ', [
+            'font-size: 203px;',
+            'background: url(https://i.imgur.com/nqTmvOo.png) no-repeat;'
+        ].join(' '));
     }
 
     render() {
@@ -135,15 +156,15 @@ class MainConverter extends Component {
                         <Card style={{ margin: '20px' }}>
                             <CardContent>
                                 <Typography variant='subtitle2' component='p'>
-                                小奇點斷句模擬器 By M3ntru(zatd39)<br />
+                                    小奇點斷句模擬器 By M3ntru(zatd39)<br />
                                 1. <a href='https://hackmd.io/@M3ntru/tgm3cheer' target='_blank' rel="noopener noreferrer">
-                                軍火製作說明文件</a><br />
+                                        軍火製作說明文件</a><br />
                                 2. <a href='https://www.chineseconverter.com/zh-tw/convert/zhuyin' target='_blank' rel="noopener noreferrer">
-                                中文轉注音轉換工具</a><br />
+                                        中文轉注音轉換工具</a><br />
                                 3.現在可以直接輸入Bits的觸發字(cheer)了，會將所有Bits統一放在第一列。<br />
                                 4.試聽功能用的API架在免費空間(heroku)，有時試聽讀取緩慢為正常現象。<br />
-                                5.斷句後方的長度判斷工具，請先將該斷句撥放完成才能判斷。 <br />    
-                                6.整段試聽功能正在開發中，但老樣子，什麼時候上還是未知數。 <br />                          
+                                5.斷句後方的長度判斷工具，請先將該斷句撥放完成才能判斷。 <br />
+                                6.整段試聽功能正在開發中，但老樣子，什麼時候上還是未知數。 <br />
                                 7.網站有任何問題，請不要找彩學，請直接聯繫
                                 <a href='https://www.plurk.com/zatd39' target='_blank' rel="noopener noreferrer">
                                 作者<img src={logoAmon} alt='logo' style={{ height: '28px', width: '28px', verticalAlign: 'text-bottom' }} /></a><br/>
@@ -154,25 +175,27 @@ class MainConverter extends Component {
                                 <a href='https://imgur.com/a/69PQR3q' target='_blank' rel="noopener noreferrer"><PhotoIcon style={{ fontSize: 18}} />圖片</a> 
                                 <a href='https://youtu.be/wohlMiTqamk' target='_blank' rel="noopener noreferrer"><YouTubeIcon style={{ fontSize: 18}} />影片</a>]<br/>
                                 -----------------------------------------------------------<br/>         
-                                網站更新時間： 2021/02/08                                                   
+                                網站更新時間： 2021/03/11<br />
+                                <a href="#" onClick={this.discord}>
+                                [工商]馬娘免費專業賽事分析</a>
                                 </Typography>
                             </CardContent>
                         </Card>
                         <div>
-                        <Typography variant='caption' component='p'>
-                            小奇點
+                            <Typography variant='caption' component='p'>
+                                小奇點
                             <Switch
-                                color="default"
-                                onChange={this.handleSwitchChange()}
-                            />
+                                    color="default"
+                                    onChange={this.handleSwitchChange()}
+                                />
                             歐付寶
                         </Typography>
-                        </div> 
+                        </div>
 
                         {(this.state.donateType) ?
                             ''
-                        :
-                            <div>                               
+                            :
+                            <div>
                                 <FormControl>
                                     <InputLabel id="demo-simple-select-label">範例</InputLabel>
                                     <Select
@@ -191,9 +214,9 @@ class MainConverter extends Component {
                                     variant='contained'
                                     onClick={this.handleLoadClick}
                                     style={{ color: '#007264', backgroundColor: '#f3f5f5', margin: '20px' }}
-                                >載入</Button>                               
+                                >載入</Button>
                             </div>
-                        }  
+                        }
                         <div>
 
                             {(this.state.HappyBirth) ?
@@ -202,7 +225,7 @@ class MainConverter extends Component {
                                     title={"骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯"}
                                     autoPlay
                                     controls
-                                /> 
+                                />
                             :''}   
 
                         </div>
@@ -218,9 +241,21 @@ class MainConverter extends Component {
                             />
                         </div>
                         <Typography variant='caption' component='p' style={{ color: (this.state.maxLength - this.state.length < 0)?'red':'black'}}>
-                                {this.state.maxLength - this.state.length} / {this.state.maxLength}
+                            {this.state.maxLength - this.state.length} / {this.state.maxLength}
                         </Typography>
-
+                        <div>
+                            <Typography variant='caption' component='p'>
+                                　　　　不撥放
+                            <Switch
+                                    color="default"
+                                    onChange={this.handlePlayerSwitchChange()}
+                                />
+                            全部撥放+靜音
+                        </Typography>
+                        <Typography variant='caption' component='p'>
+                            (撥放器套件有點原生的問題待解決，要是轉換時沒有全部靜音，請來回切換開關即可)
+                        </Typography>
+                        </div>
                         <Button
                             variant='contained'
                             onClick={this.handleConverterClick}
@@ -236,7 +271,7 @@ class MainConverter extends Component {
                             /> :
                             ''}
 
-                        <ResultList text={this.state.text} result={this.state.result} type={this.state.donateType} />
+                        <ResultList result={this.state.result} type={this.state.donateType} isAutoPlay={this.state.isAutoPlay} />
                         <Konami action={this.easterEgg} />
                     </div>
                 </Container>

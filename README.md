@@ -8,6 +8,10 @@ https://m3ntru.github.io/tgm3-bit-simulator/
 
 ## 版本
 
+### version 0.2.2 (2021/03/11)
+- 新增全部撥放+靜音功能(有小Bug待修)
+- 新增專業賽事分析工商
+
 ### version 0.2.1 patch1 (2021/02/08)
 - 網站標題&敘述修改
 - 文件內容修正

@@ -37,12 +37,41 @@ class ResultList extends React.Component {
     }
 
     componentDidUpdate = (prevProps, prevState) => {
-        if (this.props.result !== prevProps.result) {
+        var audioTemp = prevState.audio;
+        var durationCheckTemp = prevState.durationCheck;
+        var durationTemp = prevState.duration;
+        var diff = false;
+        if (this.props.isAutoPlay) {
+            var propsList = (prevProps.result.length > this.props.result.length) ? prevProps.result : this.props.result;
+            propsList.map((data, index) => {
+                if (prevProps.result[index] !== this.props.result[index]) {
+                    durationCheckTemp = {
+                        ...durationCheckTemp,
+                        [index]: false
+                    }
+                    durationTemp = {
+                        ...durationTemp,
+                        [index]: 0
+                    }
+                    diff = true;
+                }
+                audioTemp[index] = true;
+            })
+        }
+        else if (this.props.result !== prevProps.result) {
+            audioTemp = {};
+            durationCheckTemp = {};
+            durationTemp = {};
+            diff = true;
+        }
+        if ((prevProps.isAutoPlay !== this.props.isAutoPlay))
+            diff = true;
+        if (diff) {
             this.ttsInit();
             this.setState({
-                audio: {},
-                durationCheck: {},
-                duration: {}
+                audio: audioTemp,
+                durationCheck: durationCheckTemp,
+                duration: durationTemp
             })
         }
     }
@@ -61,7 +90,7 @@ class ResultList extends React.Component {
     }
 
     start = (index) => {
-        if (this.state.audio[index] == null) {
+        if (!this.state.audio[index]) {
             this.setState(prevState => ({
                 audio: {
                     ...prevState.audio,
@@ -73,7 +102,7 @@ class ResultList extends React.Component {
 
     checkLength = (index) => event => {
         const { duration } = event.target;
-        if (this.state.durationCheck[index] == null) {
+        if (!this.state.durationCheck[index]) {
             this.setState(prevState => ({
                 durationCheck: {
                     ...prevState.durationCheck,
@@ -103,9 +132,8 @@ class ResultList extends React.Component {
         )
     }
 
-
     render() {
-        const { result, text, type } = this.props;
+        const { result, text, type, isAutoPlay } = this.props;
         return (
             <div>
                 <TableContainer component={Paper}>
@@ -116,8 +144,9 @@ class ResultList extends React.Component {
                                     <TableCell width="40px">{(!type && index === 0) ? "Bits" : index}</TableCell>
                                     <TableCell width="auto">{data}</TableCell>
                                     <TableCell width="40px">
-                                        {(this.state.audio[index]) ?
+                                        {(this.state.audio[index] && (index !== 0 || type)) ?
                                             <AudioPlayer
+                                                muted={isAutoPlay}
                                                 src={"https://m3ntru-tts.herokuapp.com/api/TTS/one?text=".concat(encodeURIComponent(data).concat('&tl=').concat((type) ? 'tw' : 'cn'))}
                                                 title={index}
                                                 controls
