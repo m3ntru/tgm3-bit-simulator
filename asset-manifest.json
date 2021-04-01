@@ -1,27 +1,30 @@
 {
   "files": {
     "main.css": "/tgm3-bit-simulator/static/css/main.05b02696.chunk.css",
-    "main.js": "/tgm3-bit-simulator/static/js/main.027520c3.chunk.js",
-    "main.js.map": "/tgm3-bit-simulator/static/js/main.027520c3.chunk.js.map",
+    "main.js": "/tgm3-bit-simulator/static/js/main.a3490ea4.chunk.js",
+    "main.js.map": "/tgm3-bit-simulator/static/js/main.a3490ea4.chunk.js.map",
     "runtime-main.js": "/tgm3-bit-simulator/static/js/runtime-main.e3fa689e.js",
     "runtime-main.js.map": "/tgm3-bit-simulator/static/js/runtime-main.e3fa689e.js.map",
-    "static/js/2.389ac5a3.chunk.js": "/tgm3-bit-simulator/static/js/2.389ac5a3.chunk.js",
-    "static/js/2.389ac5a3.chunk.js.map": "/tgm3-bit-simulator/static/js/2.389ac5a3.chunk.js.map",
+    "static/js/2.39e6325d.chunk.js": "/tgm3-bit-simulator/static/js/2.39e6325d.chunk.js",
+    "static/js/2.39e6325d.chunk.js.map": "/tgm3-bit-simulator/static/js/2.39e6325d.chunk.js.map",
     "index.html": "/tgm3-bit-simulator/index.html",
-    "precache-manifest.8cbc34ea35a23139e314f5f0ed091b4f.js": "/tgm3-bit-simulator/precache-manifest.8cbc34ea35a23139e314f5f0ed091b4f.js",
+    "precache-manifest.5115a1643e0986eece3403a230ff4994.js": "/tgm3-bit-simulator/precache-manifest.5115a1643e0986eece3403a230ff4994.js",
     "service-worker.js": "/tgm3-bit-simulator/service-worker.js",
     "static/css/main.05b02696.chunk.css.map": "/tgm3-bit-simulator/static/css/main.05b02696.chunk.css.map",
-    "static/js/2.389ac5a3.chunk.js.LICENSE.txt": "/tgm3-bit-simulator/static/js/2.389ac5a3.chunk.js.LICENSE.txt",
+    "static/js/2.39e6325d.chunk.js.LICENSE.txt": "/tgm3-bit-simulator/static/js/2.39e6325d.chunk.js.LICENSE.txt",
     "static/media/HB.mp3": "/tgm3-bit-simulator/static/media/HB.5a64baf1.mp3",
+    "static/media/Katsuya.jpg": "/tgm3-bit-simulator/static/media/Katsuya.8e512397.jpg",
     "static/media/ONONON.gif": "/tgm3-bit-simulator/static/media/ONONON.40aa19f2.gif",
+    "static/media/noSoul.jpg": "/tgm3-bit-simulator/static/media/noSoul.c3a82a82.jpg",
+    "static/media/noSoul.mp3": "/tgm3-bit-simulator/static/media/noSoul.d59ec999.mp3",
     "static/media/tgm3AHO.png": "/tgm3-bit-simulator/static/media/tgm3AHO.99bc7390.png",
     "static/media/tgm3AMON.png": "/tgm3-bit-simulator/static/media/tgm3AMON.766af857.png",
     "static/media/tgm3OD.png": "/tgm3-bit-simulator/static/media/tgm3OD.6ca8a749.png"
   },
   "entrypoints": [
     "static/js/runtime-main.e3fa689e.js",
-    "static/js/2.389ac5a3.chunk.js",
+    "static/js/2.39e6325d.chunk.js",
     "static/css/main.05b02696.chunk.css",
-    "static/js/main.027520c3.chunk.js"
+    "static/js/main.a3490ea4.chunk.js"
   ]
 }
