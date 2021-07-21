@@ -5,7 +5,10 @@ import logoCgua from '../../img/tgm3Cgua.png';
 import logoOD from '../../img/tgm3OD.png';
 import logoAmon from '../../img/tgm3AMON.png';
 import ONONON from '../../img/ONONON.gif';
+import Katsuya from '../../img/Katsuya.jpg';
 import HappyBirth from '../../HB.mp3';
+import noSoul from '../../noSoul.mp3';
+import noSoulPic from '../../img/noSoul.jpg';
 import { Container, Typography, Card, CardContent, Button, TextField, Paper, FormControl, InputLabel, Select, MenuItem, Switch} from '@material-ui/core/';
 import Example from '../../example.json'
 import ReactPlayer from 'react-player'
@@ -14,6 +17,7 @@ import AudioPlayer from 'react-audio-player';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import PhotoIcon from '@material-ui/icons/Photo';
 import YouTubeIcon from '@material-ui/icons/YouTube';
+import AudiotrackIcon from '@material-ui/icons/Audiotrack';
 
 
 class MainConverter extends Component {
@@ -27,6 +31,7 @@ class MainConverter extends Component {
         player: false,
         playerLink: '',
         HappyBirth: false,
+        noSoul: false,
         donateType: false,
         isAutoPlay: "",
     }
@@ -116,6 +121,20 @@ class MainConverter extends Component {
         }
     }
 
+    handleAprilFoolClick = () => {
+        var result = [];
+        result = Converter.formatText(Example.noSoul, [".", "!", "?", ":", ";", ",", " "], 90);
+        result[0] = "Cheer8787";
+        this.setState({
+            text: "骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯骯",
+            player: true,
+            playerLink: "https://youtu.be/yozCG5WmWzg",
+            logo: noSoulPic,
+            noSoul: true,
+            result
+        })
+    }
+
     easterEgg = () => {
         var today = new Date();
         this.setState({
@@ -128,20 +147,6 @@ class MainConverter extends Component {
         console.log('%c   ', [
             'font-size:400px;',
             'background: url(https://m3ntru-tts.herokuapp.com/api/TTS/mitsuketa?day=' + today.getDay() + ') no-repeat;'
-        ].join(' '));
-    }
-
-    discord = () => {
-        this.setState({
-            player: true,
-            playerLink: "https://youtu.be/jYPIIuyPIu4",
-            logo: logoOD,
-            text: Example.predict,
-            result: ['https://tinyurl.com/umamusumePredictPro']
-        })
-        console.log('%c     ', [
-            'font-size: 203px;',
-            'background: url(https://i.imgur.com/nqTmvOo.png) no-repeat;'
         ].join(' '));
     }
 
@@ -164,7 +169,7 @@ class MainConverter extends Component {
                                 3.現在可以直接輸入Bits的觸發字(cheer)了，會將所有Bits統一放在第一列。<br />
                                 4.試聽功能用的API架在免費空間(heroku)，有時試聽讀取緩慢為正常現象。<br />
                                 5.斷句後方的長度判斷工具，請先將該斷句撥放完成才能判斷。 <br />
-                                6.整段試聽功能正在開發中，但老樣子，什麼時候上還是未知數。 <br />
+                                6.整段試聽功能緩慢搬移中 <br />
                                 7.網站有任何問題，請不要找彩學，請直接聯繫
                                 <a href='https://www.plurk.com/zatd39' target='_blank' rel="noopener noreferrer">
                                 作者<img src={logoAmon} alt='logo' style={{ height: '28px', width: '28px', verticalAlign: 'text-bottom' }} /></a><br/>
@@ -175,9 +180,7 @@ class MainConverter extends Component {
                                 <a href='https://imgur.com/a/69PQR3q' target='_blank' rel="noopener noreferrer"><PhotoIcon style={{ fontSize: 18}} />圖片</a> 
                                 <a href='https://youtu.be/wohlMiTqamk' target='_blank' rel="noopener noreferrer"><YouTubeIcon style={{ fontSize: 18}} />影片</a>]<br/>
                                 -----------------------------------------------------------<br/>         
-                                網站更新時間： 2021/03/11<br />
-                                <a href="#" onClick={this.discord}>
-                                [工商]馬娘免費專業賽事分析</a>
+                                網站更新時間： 2021/07/21<br />
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -226,7 +229,20 @@ class MainConverter extends Component {
                                     autoPlay
                                     controls
                                 />
-                            :''}   
+                            :''}  
+                            {(this.state.noSoul) ?
+                                <div>
+                                    <div>
+                                        <AudioPlayer
+                                            src={noSoul}
+                                            title={"為什麼我現在要放一首歌叫Too Fast，齁"}
+                                            autoPlay
+                                            controls
+                                        />
+                                    </div>
+                                   <a href='https://open.spotify.com/album/46aOOtkWu7vNte9O5wRWqY?' target='_blank' rel="noopener noreferrer"><AudiotrackIcon style={{ fontSize: 18}} /></a>  
+                                </div>
+                            :''}  
 
                         </div>
                         <div style={{ padding: '20px' }}>
@@ -261,6 +277,15 @@ class MainConverter extends Component {
                             onClick={this.handleConverterClick}
                             style={{ color: 'white', backgroundColor: '#009688', margin: '20px' }}
                         >轉換</Button>
+
+                        {(this.state.HappyBirth) ?
+                            <Button
+                            variant='contained'
+                            onClick={this.handleAprilFoolClick}
+                            style={{ color: 'white', backgroundColor: '#009688', margin: '20px' }}
+                            >整段試聽</Button>
+                        :''} 
+
 
                         {(this.state.player) ?
                             <ReactPlayer
